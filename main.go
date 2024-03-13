@@ -10,6 +10,10 @@ func main() {
 	// 初始化配置
 	bootstrap.InitializeConfig()
 
+	// 初始化日志
+	global.App.Log = bootstrap.InitializeLog()
+	global.App.Log.Info("log init success!")
+
 	router := gin.Default()
 	// 定义路由
 	router.GET("/", func(c *gin.Context) {
