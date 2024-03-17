@@ -1,3 +1,11 @@
+/*
+ * @Author: zhuziying 1249353194@qq.com
+ * @Date: 2024-03-15 16:36:09
+ * @LastEditors: zhuziying 1249353194@qq.com
+ * @LastEditTime: 2024-03-17 18:52:31
+ * @FilePath: /smb-code/smb-go/myproject/internal/routes/api.go
+ * @Description: 路由文件
+ */
 package routes
 
 import (
@@ -43,6 +51,7 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 	authRouter := router.Group("").Use(middleware.JWTAuth(services.AppGuardName))
 	{
 		authRouter.POST("/auth/info", api.Info)
+		authRouter.POST("/auth/logout", api.Logout)
 	}
 
 }
